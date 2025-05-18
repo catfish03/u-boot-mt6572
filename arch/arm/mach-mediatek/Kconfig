@@ -5,13 +5,13 @@ choice
 
 config BOARD_A369I
 	bool "Lenovo A369i board"
-	select TARGET_MT6572
+	depends on TARGET_MT6572
 	help
 		Enable support for Lenovo A369i (phone) board based on MT6572 SoC
 
 config BOARD_D101
 	bool "JTY D101 board"
-	select TARGET_MT6572
+	depends on TARGET_MT6572
 	help
 		Enable support for JTY D101 (tablet) board based on MT6572 SoC
 
