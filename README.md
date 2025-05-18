@@ -1,12 +1,13 @@
-# "Das U-Boot" for MediaTek MT6572/MT6580
-## Status
-### Supported devices
-#### MT6572
+# "Das U-Boot" for MediaTek MT65xx
+Currently supported SoCs: `MT6572` and `MT6580`
+## Supported devices
+### MT6572
 Lenovo A369i: U-Boot replaces the kernel;\
 JTY D101: U-Boot replaces the LK(?).
-#### MT6580
+### MT6580
 Prestigio Multipad Wize 3151 (MT8321): U-Boot replaces the LK.
 
+## Status
 **Y** = works;\
 **P** = partially works;\
 **N** = doesn't work.
