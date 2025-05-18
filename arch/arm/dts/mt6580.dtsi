@@ -39,12 +39,7 @@
       reg = <0x3>;
     };
   };
-
-  wdt-reboot {
-    compatible = "wdt-reboot";
-    wdt = <&wdt>;
-  };
-
+  
   soc {
     #address-cells = <1>;
     #size-cells = <1>;
