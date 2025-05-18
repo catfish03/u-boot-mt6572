@@ -50,11 +50,6 @@
 			clock-output-names = "clk26m";
 		};
 	};
-	
-	wdt-reboot {
-		compatible = "wdt-reboot";
-		wdt = <&wdt>;
-	};
 
 	soc {
 		#address-cells = <1>;
