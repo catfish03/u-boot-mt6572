@@ -136,5 +136,15 @@
 			clocks = <&clk26m>;
 			status = "disabled";
 		};
+
+		uart1: serial@11006000 {
+			compatible = "mediatek,mt6577-uart";
+			reg = <0x11006000 0x400>;
+			reg-shift = <2>;
+			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
+			// TODO: write a proper clock driver and nuke this
+			clocks = <&clk26m>;
+			status = "disabled";
+		};
 	};	
 };
