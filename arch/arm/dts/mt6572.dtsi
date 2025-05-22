@@ -62,7 +62,8 @@
     #size-cells = <1>;
     compatible = "simple-bus";
     ranges;
-   
+    
+    /*
     topckgen: clock-controller@10000000 {
       compatible = "mediatek,mt6580-topckgen";
       reg = <0x10000000 0x1000>;
@@ -85,7 +86,7 @@
       compatible = "mediatek,mt6580-mmsys-cg";
       reg = <0x14000000 0x1000>;
       #clock-cells = <1>;
-    };
+    };*/
 
     wdt: watchdog@10007000 {
       compatible = "mediatek,mt6589-wdt";
