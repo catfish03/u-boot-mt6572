@@ -13,7 +13,7 @@
 
 		mt6323_regulators: regulators {
 			compatible = "mediatek,mt6323-regulators";
-			
+			/*
 			mt6323_vproc_reg: buck_vproc {
 				regulator-name = "vproc";
 				regulator-min-microvolt = <700000>;
@@ -99,9 +99,8 @@
 				regulator-max-microvolt = <3300000>;
 				regulator-enable-ramp-delay = <216>;
 				regulator-boot-on;
-			};
+			};*/
 		 
-		 	/* The only 2 used regulators for now */
 			mt6323_vmc_reg: ldo_vmc {
 				regulator-name = "vmc";
 				regulator-min-microvolt = <1800000>;
@@ -117,7 +116,7 @@
 				regulator-enable-ramp-delay = <36>;
 				regulator-boot-on;
 			};
-			
+			/*
 			mt6323_vemc3v3_reg: ldo_vemc3v3 {
 				regulator-name = "vemc3v3";
 				regulator-min-microvolt = <3000000>;
@@ -227,12 +226,13 @@
 				regulator-min-microvolt = <1800000>;
 				regulator-max-microvolt = <1800000>;
 				regulator-enable-ramp-delay = <216>;
-			};
+			};*/
 		};
 		
 		/* Only PWRKEY is connected to PMIC */
-		mt6323_keys: mt6323_keys {
+		pwrkey {
 			compatible = "mediatek,mt6323-pwrkey";
+			status = "okay";
 		};
 	};
 };
