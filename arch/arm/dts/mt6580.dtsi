@@ -39,6 +39,12 @@
     };
   };
   
+  wdt-reboot {
+    compatible = "wdt-reboot";
+    wdt = <&wdt>;
+    status = "okay";
+  };
+
   soc {
     #address-cells = <1>;
     #size-cells = <1>;
