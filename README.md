@@ -32,43 +32,29 @@ Prestigio Multipad Wize 3151 (MT8321): U-Boot replaces the LK.
 
 ## Building
 ### Lenovo A369i (MT6572)
-1. Run the `build_mt6572.sh` build script:
 ```
 ./build_mt6572.sh
 ```
-2. Profit
 
 ### JTY D101 (MT6572)
-1. Enter:
 ```
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- make O=out d101_defconfig
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- make O=out -j$(nproc --all)
 ```
-2. Profit
 
 ### MT6580
-1. Enter:
 ```
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- make O=out mt6580_defconfig
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- make O=out -j$(nproc --all)
 ```
-2. Profit
 
 ## Flashing
 ### MT6572
-1. Power off the device
-2. Enter:
 ```
 mtk w bootimg u-boot-mt6572.img
 ```
-3. Connect to the PC with a USB cable
-4. Profit
 
 ### MT6580
-1. Power off the device
-2. Enter:
 ```
 mtk w lk out/u-boot-mtk.bin
 ```
-3. Connect to the PC with a USB cable
-4. Profit
