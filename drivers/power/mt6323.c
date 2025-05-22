@@ -26,11 +26,11 @@ int do_poweroff(struct cmd_tbl *cmdtp, int flag, int argc, char *const argv[])
 	mdelay(10);
 
 	val = PWRAP_CALC(MT6323_PWRC_BASE + RTC_WRTGR, 1);
-	printf("mt6323: %s: powering off...\n", __func__);
+	printf("%s: powering off...\n", __func__);
 	writel(val, addr);
 	
 	/* If poweroff is successful, this code is never reached */
 	mdelay(1000);
-	printf("mt6323: %s: failed to power off\n", __func__);
+	printf("%s: failed to power off\n", __func__);
 	return 1;
 }
