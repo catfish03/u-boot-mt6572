@@ -3,61 +3,61 @@
 #include <dt-bindings/phy/phy.h>
 
 / {
-	compatible = "mediatek,mt6572";
-	#address-cells = <1>;
-	#size-cells = <1>;
-	interrupt-parent = <&gic>;
+  compatible = "mediatek,mt6572";
+  #address-cells = <1>;
+  #size-cells = <1>;
+  interrupt-parent = <&gic>;
 
-	cpus {
-		#address-cells = <1>;
-		#size-cells = <0>;
+  cpus {
+    #address-cells = <1>;
+    #size-cells = <0>;
 
-		cpu0: cpu@0 {
-			compatible = "arm,cortex-a7";
-			device_type = "cpu";
-			reg = <0x0>;
-		};
+    cpu0: cpu@0 {
+      compatible = "arm,cortex-a7";
+      device_type = "cpu";
+      reg = <0x0>;
+    };
 
-		cpu1: cpu@1 {
-			compatible = "arm,cortex-a7";
-			device_type = "cpu";
-			reg = <0x1>;
-		};
-	};
+    cpu1: cpu@1 {
+      compatible = "arm,cortex-a7";
+      device_type = "cpu";
+      reg = <0x1>;
+    };
+  };
 
-	clocks {
-		#address-cells = <1>;
-		#size-cells = <1>;
-		ranges;
+  clocks {
+    #address-cells = <1>;
+    #size-cells = <1>;
+    ranges;
 
-		system_clk: dummy13m {
-			compatible = "fixed-clock";
-			clock-frequency = <13000000>;
-			#clock-cells = <0>;
-		};
+    system_clk: dummy13m {
+      compatible = "fixed-clock";
+      clock-frequency = <13000000>;
+      #clock-cells = <0>;
+    };
 
-		rtc32k: oscillator-0 {
-			compatible = "fixed-clock";
-			clock-frequency = <32000>;
-			#clock-cells = <0>;
-			clock-output-names = "rtc32k";
-		};
+    rtc32k: oscillator-0 {
+      compatible = "fixed-clock";
+      clock-frequency = <32000>;
+      #clock-cells = <0>;
+      clock-output-names = "rtc32k";
+    };
 
-		clk26m: oscillator-1 {
-			compatible = "fixed-clock";
-			#clock-cells = <0>;
-			clock-frequency = <26000000>;
-			clock-output-names = "clk26m";
-		};
-	};
+    clk26m: oscillator-1 {
+      compatible = "fixed-clock";
+      #clock-cells = <0>;
+      clock-frequency = <26000000>;
+      clock-output-names = "clk26m";
+    };
+  };
 
-	soc {
-		#address-cells = <1>;
-		#size-cells = <1>;
-		compatible = "simple-bus";
-		ranges;
+  soc {
+    #address-cells = <1>;
+    #size-cells = <1>;
+    compatible = "simple-bus";
+    ranges;
    
-		topckgen: clock-controller@10000000 {
+    topckgen: clock-controller@10000000 {
       compatible = "mediatek,mt6580-topckgen";
       reg = <0x10000000 0x1000>;
       #clock-cells = <1>;
@@ -74,77 +74,78 @@
       reg = <0x10205000	0x1000>;
       #clock-cells = <1>;
     };
-		
-		mmsys_cg: clock-controller@14000000 {
+    
+    mmsys_cg: clock-controller@14000000 {
       compatible = "mediatek,mt6580-mmsys-cg";
       reg = <0x14000000 0x1000>;
       #clock-cells = <1>;
     };
 
-  	wdt: watchdog@10007000 {
-			compatible = "mediatek,mt6589-wdt";
-			reg = <0x10007000 0x100>;
-			timeout-sec = <15>;
-			interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
-		};
-			
-		gpt: timer@10008000 {
-			compatible = "mediatek,mt6577-timer";
-			reg = <0x10008000 0x80>;
-			interrupts = <GIC_SPI 74 IRQ_TYPE_LEVEL_LOW>;
-			clocks = <&system_clk>, <&rtc32k>;
-			clock-names = "system-clk", "rtc32k";
-		};
+    wdt: watchdog@10007000 {
+      compatible = "mediatek,mt6589-wdt";
+      reg = <0x10007000 0x100>;
+      timeout-sec = <15>;
+      interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
+    };
+      
+    gpt: timer@10008000 {
+      compatible = "mediatek,mt6577-timer";
+      reg = <0x10008000 0x80>;
+      interrupts = <GIC_SPI 74 IRQ_TYPE_LEVEL_LOW>;
+      clocks = <&system_clk>, <&rtc32k>;
+      clock-names = "system-clk", "rtc32k";
+    };
 
-		gic: interrupt-controller@10211000 {
-			compatible = "arm,cortex-a7-gic";
-			interrupt-controller;
-			#interrupt-cells = <3>;
-			interrupt-parent = <&gic>;
-			reg = <0x10211000 0x1000>,
-      			<0x10212000 0x2000>,
+    gic: interrupt-controller@10211000 {
+      compatible = "arm,cortex-a7-gic";
+      interrupt-controller;
+      #interrupt-cells = <3>;
+      interrupt-parent = <&gic>;
+      reg = <0x10211000 0x1000>,
+            <0x10212000 0x2000>,
             <0x10214000 0x2000>,
             <0x10216000 0x2000>;
-		};
-		
-		pinctrl: pinctrl@10005000 {
-			compatible = "mediatek,mt6572-pinctrl";
-			reg = <0x10005000 0x1000>,
+    };
+    
+    pinctrl: pinctrl@10005000 {
+      compatible = "mediatek,mt6572-pinctrl";
+      reg = <0x10005000 0x1000>,
             <0x10014000 0x1000>,
             <0x10015000 0x1000>,
             <0x10016000 0x1000>,
             <0x10017000 0x1000>;
-    	reg-names = "gpio", "iocfg_t", "iocfg_b", "iocfg_l", "iocfg_r";		
-    	
-    	gpio: gpio-controller {
+      reg-names = "gpio", "iocfg_t", 
+                  "iocfg_b", "iocfg_l", "iocfg_r";		
+      
+      gpio: gpio-controller {
         gpio-controller;
         #gpio-cells = <2>;
       };
-		};
-		
-    pwrap: pwrap@1000f000 {
+    };
+    
+    pwrap: pwrap {
       compatible = "mediatek,mt6572-pwrap";
       reg = <0x1000f000 0x1000>;
     };
 
-		uart0: serial@11005000 {
-			compatible = "mediatek,mt6577-uart";
-			reg = <0x11005000 0x400>;
-			reg-shift = <2>;
-			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_LOW>;
-			// TODO: write a proper clock driver and nuke this
-			clocks = <&clk26m>;
-			status = "disabled";
-		};
+    uart0: serial@11005000 {
+      compatible = "mediatek,mt6577-uart";
+      reg = <0x11005000 0x400>;
+      reg-shift = <2>;
+      interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_LOW>;
+      // TODO: write a proper clock driver and nuke this
+      clocks = <&clk26m>;
+      status = "disabled";
+    };
 
-		uart1: serial@11006000 {
-			compatible = "mediatek,mt6577-uart";
-			reg = <0x11006000 0x400>;
-			reg-shift = <2>;
-			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
-			// TODO: write a proper clock driver and nuke this
-			clocks = <&clk26m>;
-			status = "disabled";
-		};
-	};	
+    uart1: serial@11006000 {
+      compatible = "mediatek,mt6577-uart";
+      reg = <0x11006000 0x400>;
+      reg-shift = <2>;
+      interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
+      // TODO: write a proper clock driver and nuke this
+      clocks = <&clk26m>;
+      status = "disabled";
+    };
+  };	
 };
