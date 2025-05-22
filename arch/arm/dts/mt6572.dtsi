@@ -114,7 +114,7 @@
             <0x10216000 0x2000>;
     };
     
-    pinctrl: pinctrl@10005000 {
+    /*pinctrl: pinctrl@10005000 {
       compatible = "mediatek,mt6572-pinctrl";
       reg = <0x10005000 0x1000>,
             <0x10014000 0x1000>,
@@ -128,7 +128,7 @@
         gpio-controller;
         #gpio-cells = <2>;
       };
-    };
+    };*/
     
     pwrap: pwrap {
       compatible = "mediatek,mt6572-pwrap";
