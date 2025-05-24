@@ -7,13 +7,13 @@ config BOARD_A369I
 	bool "Lenovo A369i board"
 	depends on TARGET_MT6572
 	help
-		Enable support for Lenovo A369i (phone) board based on MT6572 SoC
+		Enable support for Lenovo A369i phone based on MT6572 SoC
 
 config BOARD_D101
 	bool "JTY D101 board"
 	depends on TARGET_MT6572
 	help
-		Enable support for JTY D101 (tablet) board based on MT6572 SoC
+		Enable support for JTY D101 tablet based on MT6572 SoC
 
 endchoice
 
@@ -32,14 +32,16 @@ config TARGET_MT6572
 	select CPU_V7A
 	select MMC_SUPPORTS_TUNING
 	help
-		The MediaTek MT6572 is a ARMv7-based SoC with 2x ARM Cortex-A7 cores.
+		The MediaTek MT6572 is a ARMv7-based SoC with 2x ARM Cortex-A7 cores
+		released in 2013.
 
 config TARGET_MT6580
 	bool "MediaTek MT6580 SoC"
 	select CPU_V7A
 	select MMC_SUPPORTS_TUNING
 	help
-		The MediaTek MT6580 is a ARMv7-based SoC with a 4x Cortex-A7...
+		The MediaTek MT6580 is a ARMv7-based SoC with 4x ARM Cortex-A7 cores
+		released in 2015.
 
 config TARGET_MT7622
 	bool "MediaTek MT7622 SoC"
